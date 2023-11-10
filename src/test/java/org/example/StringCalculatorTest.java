@@ -40,7 +40,12 @@ class StringCalculatorTest {
 
     @Test
     public void delimiterTest() {
-        assertEquals(12,StringCalculator.add("//;\n1;3;8,223\n1"));
+        assertEquals(236,StringCalculator.add("//;\n1;3;8,223\n1"));
+    }
+
+    @Test
+    public void negativedelimiterTest() {
+        assertEquals(12,StringCalculator.add("//;\n1;-3;8"));
     }
 
 }

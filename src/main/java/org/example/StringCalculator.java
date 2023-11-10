@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
@@ -22,19 +24,32 @@ public class StringCalculator {
         }
 
         int sum = 0;
+        List<Integer> negativeNumbers = new ArrayList<>();
         String[] numberArray = numbers.split(Pattern.quote(delimiter) + "|\\n|,");
         for (String num : numberArray) {
+            if (parseNum(num) < 0) {
+                negativeNumbers.add(parseNum(num));
+            }
             sum += parseNum(num);
+        }
+        if (!negativeNumbers.isEmpty()) {
+            try {
+                throw new Exception("Negative number entered" + negativeNumbers);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
         return sum;
     }
+
+
 
     public static int parseNum(String num) {
         return Integer.parseInt(num);
     }
 
     public static void main(String[] args) {
-        int result4 = StringCalculator.add("//;\n1;2;8,81,1\n1");
+        int result4 = StringCalculator.add("1,-2,-3,-4");
         System.out.println(result4);
     }
 }
