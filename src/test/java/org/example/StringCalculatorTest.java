@@ -27,5 +27,15 @@ class StringCalculatorTest {
     }
 
 
+    @Test
+    public void anyNumbersTest() {
+        assertEquals(9,StringCalculator.add("1,1,2,3,2"));
+    }
+
+
+    @Test
+    public void newLineNumbersTest() {
+        assertEquals(9,StringCalculator.add("1,1\n2,3,2"));
+    }
 
 }
