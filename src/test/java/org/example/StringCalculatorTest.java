@@ -48,4 +48,8 @@ class StringCalculatorTest {
         assertEquals(12,StringCalculator.add("//;\n1;-3;8"));
     }
 
+    @Test
+    public void ThousandTest() {
+        assertEquals(900,StringCalculator.add("//;\n400;500;1200"));
+    }
 }

@@ -30,7 +30,9 @@ public class StringCalculator {
             if (parseNum(num) < 0) {
                 negativeNumbers.add(parseNum(num));
             }
-            sum += parseNum(num);
+            if (parseNum(num) < 1000) {
+                sum += parseNum(num);
+            }
         }
         if (!negativeNumbers.isEmpty()) {
             try {
@@ -49,7 +51,7 @@ public class StringCalculator {
     }
 
     public static void main(String[] args) {
-        int result4 = StringCalculator.add("1,-2,-3,-4");
+        int result4 = StringCalculator.add("//;\n1;1001;800");
         System.out.println(result4);
     }
 }
