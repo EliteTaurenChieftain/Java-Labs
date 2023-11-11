@@ -10,18 +10,23 @@ public class StringCalculator {
             return 0;
         }
 
-        String delimiter = ",";
+        String delimiter=",";
         if (numbers.startsWith("//")) {
             int startIndex = numbers.indexOf("//");
             int endIndex = numbers.indexOf("\n");
             if (startIndex != -1 && endIndex != -1 && endIndex > startIndex) {
-                String customDelimiter = numbers.substring(startIndex + 2, endIndex);
-                if (customDelimiter.length() == 1) {
-                    delimiter = customDelimiter;
-                    numbers = numbers.substring(endIndex + 1);
+                delimiter = numbers.substring(startIndex + 2, endIndex);
+                numbers = numbers.substring(endIndex + 1);
+            }
+            if (delimiter.startsWith("[")) {
+                int startIndek = delimiter.indexOf("[");
+                int endIndek = delimiter.indexOf("]");
+                if (startIndek != -1 && endIndek != -1 && endIndek > startIndek) {
+                    delimiter = delimiter.substring(startIndek + 1, endIndek);
                 }
             }
         }
+
 
         int sum = 0;
         List<Integer> negativeNumbers = new ArrayList<>();
@@ -51,7 +56,7 @@ public class StringCalculator {
     }
 
     public static void main(String[] args) {
-        int result4 = StringCalculator.add("//;\n1;1001;800");
+        int result4 = StringCalculator.add("//.\n-1.-2.-3.-8,-2\n1");
         System.out.println(result4);
     }
 }

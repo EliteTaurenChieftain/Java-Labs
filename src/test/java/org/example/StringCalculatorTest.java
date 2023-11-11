@@ -52,4 +52,9 @@ class StringCalculatorTest {
     public void ThousandTest() {
         assertEquals(900,StringCalculator.add("//;\n400;500;1200"));
     }
+
+    @Test
+    public void LongDelimTest() {
+        assertEquals(14,StringCalculator.add("//[...]\n1...2...3...8"));
+    }
 }
